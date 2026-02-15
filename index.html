@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +14,19 @@
             margin: 0 auto;
             padding: 2rem;
         }
+
         header {
             margin-bottom: 3rem;
             border-bottom: 2px solid #f0f0f0;
             padding-bottom: 2rem;
         }
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.2rem;
             color: #111;
         }
+
         .subtitle {
             font-size: 1.25rem;
             color: #555;
@@ -30,42 +34,53 @@
             margin-bottom: 1.5rem;
             font-weight: 500;
         }
+
         h2 {
             font-size: 1.75rem;
             color: #222;
             margin-bottom: 1.5rem;
             margin-top: 2.5rem;
         }
-        .role, .case-study {
+
+        .role,
+        .case-study {
             margin-bottom: 2.5rem;
         }
+
         .job-title {
             margin-bottom: 0.5rem;
         }
+
         .job-title h3 {
             margin: 0;
             font-size: 1.3rem;
             color: #111;
         }
+
         .company {
             color: #0056b3;
         }
+
         .context {
             font-style: italic;
             color: #666;
             margin-top: 0.2rem;
             margin-bottom: 1rem;
         }
+
         ul {
             padding-left: 1.2rem;
         }
+
         li {
             margin-bottom: 0.5rem;
         }
+
         .metric {
             font-weight: 600;
-            color: #0c854c; 
+            color: #0c854c;
         }
+
         .btn {
             display: inline-block;
             margin-top: 0.5rem;
@@ -77,10 +92,12 @@
             text-decoration: none;
             transition: background-color 0.2s ease;
         }
+
         .btn:hover {
             background-color: #e0e0e0;
             text-decoration: none;
         }
+
         footer {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -88,16 +105,19 @@
             display: flex;
             gap: 1.5rem;
         }
+
         a {
             color: #0056b3;
             text-decoration: none;
             font-weight: 500;
         }
+
         a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -109,16 +129,20 @@
     <main>
         <section id="experience">
             <h2>Impact & Experience</h2>
-            
+
             <div class="role">
                 <div class="job-title">
                     <h3><span class="company">ADT Security Services</span> | Product Manager</h3>
                 </div>
-                <p class="context">Led the Beta Program for next-generation security products, bridging hardware operations and software engineering.</p>
+                <p class="context">Led the Beta Program for next-generation security products, bridging hardware
+                    operations and software engineering.</p>
                 <ul>
-                    <li><strong>The Challenge:</strong> Early beta data revealed a massive friction point, leading to an unacceptably high failure rate during out-of-box user setup.</li>
-                    <li><strong>The Solution:</strong> Established a daily cross-functional triage process, analyzed failure data, aligned leadership on priorities, and deployed rapid technical fixes.</li>
-                    <li><strong>The Impact:</strong> Improved out-of-box setup success by <span class="metric">65%</span>.</li>
+                    <li><strong>The Challenge:</strong> Early beta data revealed a massive friction point, leading to an
+                        unacceptably high failure rate during out-of-box user setup.</li>
+                    <li><strong>The Solution:</strong> Established a daily cross-functional triage process, analyzed
+                        failure data, aligned leadership on priorities, and deployed rapid technical fixes.</li>
+                    <li><strong>The Impact:</strong> Improved out-of-box setup success by <span
+                            class="metric">65%</span>.</li>
                 </ul>
             </div>
 
@@ -126,28 +150,55 @@
                 <div class="job-title">
                     <h3><span class="company">Agile Legal</span> | Product Manager</h3>
                 </div>
-                <p class="context">Managed an internal Legal Project Management tool used by cross-functional stakeholders.</p>
+                <p class="context">Managed an internal Legal Project Management tool used by cross-functional
+                    stakeholders.</p>
                 <ul>
-                    <li><strong>The Challenge:</strong> Chaotic feature requests prioritized by stakeholder volume, coupled with a lack of clear onboarding for new users.</li>
-                    <li><strong>The Solution:</strong> Designed a weighted scoring system inside Jira to objectively rank roadmap priorities and developed an info-bubble system for contextual guidance.</li>
-                    <li><strong>The Impact:</strong> Established a predictable, data-driven engineering delivery cadence and improved internal knowledge management.</li>
+                    <li><strong>The Challenge:</strong> Chaotic feature requests prioritized by stakeholder volume,
+                        coupled with a lack of clear onboarding for new users.</li>
+                    <li><strong>The Solution:</strong> Designed a weighted scoring system inside Jira to objectively
+                        rank roadmap priorities and developed an info-bubble system for contextual guidance.</li>
+                    <li><strong>The Impact:</strong> Established a predictable, data-driven engineering delivery cadence
+                        and improved internal knowledge management.</li>
                 </ul>
             </div>
         </section>
 
         <section id="case-studies">
             <h2>Selected Case Studies</h2>
-            
+
             <div class="case-study">
                 <h3>Saving the Out-of-Box Experience</h3>
-                <p>A deep dive into how cross-functional triage and rapid hardware/software alignment rescued a beta launch and improved user setup by 65%.</p>
-                <a href="#" class="btn">Read Case Study &rarr;</a>
+                <p>A deep dive into how cross-functional triage and rapid hardware/software alignment rescued a beta
+                    launch and improved user setup by 65%.</p>
+                <a href="out-of-box-case-study.html" class="btn">Read Case Study &rarr;</a>
             </div>
 
             <div class="case-study">
                 <h3>Taming the Feature Factory</h3>
-                <p>How I implemented a weighted Jira scoring system to shift an internal engineering team from reactive ticket-takers to a predictable, data-driven delivery machine.</p>
-                <a href="#" class="btn">Read Case Study &rarr;</a>
+                <p>How I implemented a weighted Jira scoring system to shift an internal engineering team from reactive
+                    ticket-takers to a predictable, data-driven delivery machine.</p>
+                <a href="feature-factory-case-study.html" class="btn">Read Case Study &rarr;</a>
+            </div>
+
+            <div class="case-study">
+                <h3>Smart Security Platform Beta & Launch</h3>
+                <p>Coordinated a multi-channel launch across mobile, hardware, streaming services, and support teams to
+                    de-risk public release and identify critical friction points.</p>
+                <a href="smart-security-case-study.html" class="btn">Read Case Study &rarr;</a>
+            </div>
+
+            <div class="case-study">
+                <h3>Mobile Feature Launch</h3>
+                <p>A strategic breakdown of the product development lifecycle and execution that drove an 18% increase
+                    in user engagement.</p>
+                <a href="mobile-feature-case-study.html" class="btn">Read Case Study &rarr;</a>
+            </div>
+
+            <div class="case-study">
+                <h3>Onboarding Redesign</h3>
+                <p>How a complete UX overhaul of the initial user journey resulted in a 25% reduction in drop-off rates.
+                </p>
+                <a href="onboarding-case-study.html" class="btn">Read Case Study &rarr;</a>
             </div>
         </section>
     </main>
@@ -158,4 +209,5 @@
     </footer>
 
 </body>
+
 </html>
