@@ -1,5 +1,5 @@
 # PRD: Interactive Contact Form
-
+**Status:** ✅ Shipped (March 2026)
 ## Objective
 Reduce friction for recruiters, hiring managers, and peers who want to reach out. Replacing a direct `mailto:` link with an on-page form prevents drop-off caused by launching desktop email clients.
 
@@ -10,7 +10,9 @@ Reduce friction for recruiters, hiring managers, and peers who want to reach out
 * **Story 2.4:** As the product owner, I want these submissions seamlessly routed directly to my inbox without managing a backend database.
 
 ## Acceptance Criteria
-* [ ] Form includes three required fields: Name (text), Email (email validation), and Message (textarea).
-* [ ] Submit button provides visual feedback (e.g., hover state) so users know it is clickable.
-* [ ] Form uses Netlify's built-in form handling (`data-netlify="true"`) to capture submissions.
-* [ ] Upon successful submission, the form clears or shows a "Thank you" confirmation state.
+* [x] Form fields (Name, Email, Message) are styled to match global CSS variables.
+* [x] Dark mode toggle successfully applies to the form inputs.
+* [x] Netlify form detection is enabled and capturing submissions.
+* [x] Submissions trigger an email notification to the site owner.
+* [x] Users are successfully redirected to `success.html` upon submission.
+* [x] Mobile view is responsive and text does not overlap.
