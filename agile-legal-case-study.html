@@ -1,96 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internal Operations Platform | Daniel Hall</title>
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333;
+            --heading-color: #111;
+            --subtitle-color: #555;
+            --accent-color: #0056b3;
+            --metric-color: #0c854c;
+            --border-color: #f0f0f0;
+            --btn-bg: #f0f0f0;
+            --btn-hover: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --subtitle-color: #aaaaaa;
+            --accent-color: #4da3ff;
+            --metric-color: #4ade80;
+            --border-color: #333333;
+            --btn-bg: #333333;
+            --btn-hover: #444444;
+        }
+
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
             max-width: 750px;
             margin: 0 auto;
             padding: 2rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        nav {
-            margin-bottom: 2rem;
-        }
+
         header {
             margin-bottom: 3rem;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 2rem;
+            position: relative;
+            /* Helps position the toggle button */
         }
+
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.2rem;
-            color: #111;
+            color: var(--heading-color);
         }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
         .subtitle {
-            font-size: 1.1rem;
-            color: #0056b3;
+            font-size: 1.25rem;
+            color: var(--subtitle-color);
             margin-top: 0;
+            margin-bottom: 1.5rem;
             font-weight: 500;
         }
-        h2 {
-            font-size: 1.5rem;
-            color: #222;
-            margin-bottom: 1rem;
-            margin-top: 2.5rem;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 0.5rem;
+
+        .role,
+        .case-study {
+            margin-bottom: 2.5rem;
         }
-        h3 {
-            font-size: 1.2rem;
-            color: #111;
-            margin-top: 1.5rem;
+
+        .job-title {
             margin-bottom: 0.5rem;
         }
-        p {
+
+        .job-title h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--heading-color);
+        }
+
+        .company {
+            color: var(--accent-color);
+        }
+
+        .context {
+            font-style: italic;
+            color: var(--subtitle-color);
+            margin-top: 0.2rem;
             margin-bottom: 1rem;
         }
+
         ul {
             padding-left: 1.2rem;
-            margin-bottom: 1.5rem;
         }
+
         li {
             margin-bottom: 0.5rem;
         }
+
+        .metric {
+            font-weight: 600;
+            color: var(--metric-color);
+        }
+
         .btn {
             display: inline-block;
+            margin-top: 0.5rem;
             padding: 0.5rem 1rem;
-            background-color: #f0f0f0;
-            color: #111;
+            background-color: var(--btn-bg);
+            color: var(--text-color);
             border-radius: 4px;
             font-weight: 500;
             text-decoration: none;
-            transition: background-color 0.2s ease;
-            font-size: 0.9rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
+
         .btn:hover {
-            background-color: #e0e0e0;
+            background-color: var(--btn-hover);
             text-decoration: none;
         }
-        .metric {
-            font-weight: 600;
-            color: #0c854c; 
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+            display: flex;
+            gap: 1.5rem;
         }
-        .callout-box {
-            background-color: #f8f9fa;
-            border-left: 4px solid #0056b3;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 4px 4px 0;
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
         }
-        .callout-box h3 {
-            margin-top: 0;
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
 
-    <nav>
+    <nav style="display: flex; justify-content: space-between; align-items: center;">
         <a href="index.html" class="btn">&larr; Back to Portfolio</a>
+        <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
     </nav>
 
     <header>
@@ -101,54 +164,101 @@
     <main>
         <section>
             <h2>The Challenge</h2>
-            <p>Legal operations relied heavily on spreadsheets, manual updates, and disjointed project management tools. This fragmentation meant leadership lacked real-time visibility into project status, resource allocation, and overall workload balance.</p>
-            <p>For team leads, this resulted in constant delays and duplicated efforts due to a lack of integrated communication and reporting. The objective was to design and launch a proprietary internal web app to centralize and unify these operations.</p>
+            <p>Legal operations relied heavily on spreadsheets, manual updates, and disjointed project management tools.
+                This fragmentation meant leadership lacked real-time visibility into project status, resource
+                allocation, and overall workload balance.</p>
+            <p>For team leads, this resulted in constant delays and duplicated efforts due to a lack of integrated
+                communication and reporting. The objective was to design and launch a proprietary internal web app to
+                centralize and unify these operations.</p>
         </section>
 
         <section>
             <h2>My Role & Execution</h2>
-            <p>As the Product Manager, I partnered directly with engineering, project management, and legal operations to define requirements, manage the product roadmap, and oversee delivery.</p>
+            <p>As the Product Manager, I partnered directly with engineering, project management, and legal operations
+                to define requirements, manage the product roadmap, and oversee delivery.</p>
             <ul>
-                <li><strong>Scoping & Strategy:</strong> Defined the MVP scope, established user personas (Project Managers, Legal Analysts, Leadership), and set clear success metrics.</li>
-                <li><strong>Agile Implementation:</strong> Instituted an Agile workflow, introducing sprint cadences with story point estimation and strict backlog prioritization.</li>
-                <li><strong>Design & Prototyping:</strong> Designed core modules using Figma wireframes, including Task Boards, Reporting Dashboards, and Resource Allocation views.</li>
+                <li><strong>Scoping & Strategy:</strong> Defined the MVP scope, established user personas (Project
+                    Managers, Legal Analysts, Leadership), and set clear success metrics.</li>
+                <li><strong>Agile Implementation:</strong> Instituted an Agile workflow, introducing sprint cadences
+                    with story point estimation and strict backlog prioritization.</li>
+                <li><strong>Design & Prototyping:</strong> Designed core modules using Figma wireframes, including Task
+                    Boards, Reporting Dashboards, and Resource Allocation views.</li>
             </ul>
         </section>
 
         <section>
             <h2>The Solution</h2>
-            <p>We successfully delivered a single, unified dashboard for comprehensive project tracking, automated reporting, and resource allocation. Core features included:</p>
+            <p>We successfully delivered a single, unified dashboard for comprehensive project tracking, automated
+                reporting, and resource allocation. Core features included:</p>
             <ul>
-                <li><strong>Project Dashboard:</strong> A Kanban-style workflow view tracking tasks, dependencies, and overall sprint progress.</li>
-                <li><strong>Automated Reporting:</strong> MySQL-backed dashboards providing instant visibility into workload, turnaround times, and task completion metrics.</li>
-                <li><strong>Smart Data Insights:</strong> Integrated preliminary AI models to assist with document tagging and identifying operational trends.</li>
+                <li><strong>Project Dashboard:</strong> A Kanban-style workflow view tracking tasks, dependencies, and
+                    overall sprint progress.</li>
+                <li><strong>Automated Reporting:</strong> MySQL-backed dashboards providing instant visibility into
+                    workload, turnaround times, and task completion metrics.</li>
+                <li><strong>Smart Data Insights:</strong> Integrated preliminary AI models to assist with document
+                    tagging and identifying operational trends.</li>
             </ul>
         </section>
 
         <section>
             <h2>Results & Impact</h2>
             <ul>
-                <li>Reduced task turnaround time by <span class="metric">15%</span> within the first quarter post-launch.</li>
-                <li>Improved sprint velocity by <span class="metric">20%</span> by transitioning the team to a structured backlog and story-point methodology.</li>
+                <li>Reduced task turnaround time by <span class="metric">15%</span> within the first quarter
+                    post-launch.</li>
+                <li>Improved sprint velocity by <span class="metric">20%</span> by transitioning the team to a
+                    structured backlog and story-point methodology.</li>
                 <li>Delivered real-time operational visibility across 8+ distinct legal practice areas.</li>
-                <li>Successfully laid the architectural foundation for future AI-integrated automation in legal document processing.</li>
+                <li>Successfully laid the architectural foundation for future AI-integrated automation in legal document
+                    processing.</li>
             </ul>
         </section>
 
         <div class="callout-box">
             <h3>Key Takeaways</h3>
             <ul>
-                <li><strong>Early Stakeholder Alignment:</strong> Gaining buy-in across multiple departments from day one was critical to driving platform adoption.</li>
-                <li><strong>Bridging Workflows:</strong> Implementing a lightweight but flexible Agile process successfully bridged the gap between technical engineering workflows and traditional legal procedures.</li>
-                <li><strong>Data as a Foundation:</strong> Building the platform with measurable data visibility in mind positioned the tool as a scalable foundation for future automation efforts.</li>
+                <li><strong>Early Stakeholder Alignment:</strong> Gaining buy-in across multiple departments from day
+                    one was critical to driving platform adoption.</li>
+                <li><strong>Bridging Workflows:</strong> Implementing a lightweight but flexible Agile process
+                    successfully bridged the gap between technical engineering workflows and traditional legal
+                    procedures.</li>
+                <li><strong>Data as a Foundation:</strong> Building the platform with measurable data visibility in mind
+                    positioned the tool as a scalable foundation for future automation efforts.</li>
             </ul>
         </div>
     </main>
 
     <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0f0f0; padding-bottom: 2rem;">
-        <a href="mailto:daniel@dhallproduct.xyz" style="color: #0056b3; text-decoration: none; font-weight: 500; margin-right: 1.5rem;">Email Me</a>
-        <a href="https://www.linkedin.com/in/daniel-j-hall" target="_blank" style="color: #0056b3; text-decoration: none; font-weight: 500;">LinkedIn</a>
+        <a href="mailto:daniel@dhallproduct.xyz"
+            style="color: #0056b3; text-decoration: none; font-weight: 500; margin-right: 1.5rem;">Email Me</a>
+        <a href="https://www.linkedin.com/in/daniel-j-hall" target="_blank"
+            style="color: #0056b3; text-decoration: none; font-weight: 500;">LinkedIn</a>
     </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
 
+        // Check for saved theme in localStorage OR system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Apply initial theme
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+
+        // Toggle logic on click
+        themeToggle.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            }
+        });
+    </script>
 </body>
+
 </html>
