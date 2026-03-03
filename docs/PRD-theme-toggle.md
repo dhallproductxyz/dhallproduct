@@ -1,5 +1,7 @@
 # PRD: Dark/Light Mode Theme Toggle
 
+**Status:** ✅ Shipped (March 2026)
+
 ## Objective
 Improve site accessibility and give users control over their viewing experience, demonstrating strong UX fundamentals.
 
@@ -10,7 +12,7 @@ Improve site accessibility and give users control over their viewing experience,
 * **Story 1.4:** As a returning visitor, I want the site to remember my previous theme selection so I don't have to toggle it every time I visit.
 
 ## Acceptance Criteria
-* [ ] Toggle UI (e.g., a sun/moon icon or text toggle) is placed prominently in the header or navigation area.
-* [ ] Clicking the toggle seamlessly updates the CSS variables (background and text colors) without requiring a page reload.
-* [ ] The user's preference is saved in the browser's `localStorage`.
-* [ ] On initial load, the site checks `localStorage` first; if empty, it defaults to the user's OS-level theme preference (`prefers-color-scheme`).
+* [x] Toggle UI (e.g., a sun/moon icon or text toggle) is placed prominently in the header or navigation area.
+* [x] Clicking the toggle seamlessly updates the CSS variables (background and text colors) without requiring a page reload.
+* [x] The user's preference is saved in the browser's `localStorage`.
+* [x] On initial load, the site checks `localStorage` first; if empty, it defaults to the user's OS-level theme preference (`prefers-color-scheme`).
