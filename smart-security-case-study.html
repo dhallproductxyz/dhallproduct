@@ -1,96 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Security Platform Beta | Daniel Hall</title>
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333;
+            --heading-color: #111;
+            --subtitle-color: #555;
+            --accent-color: #0056b3;
+            --metric-color: #0c854c;
+            --border-color: #f0f0f0;
+            --btn-bg: #f0f0f0;
+            --btn-hover: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --subtitle-color: #aaaaaa;
+            --accent-color: #4da3ff;
+            --metric-color: #4ade80;
+            --border-color: #333333;
+            --btn-bg: #333333;
+            --btn-hover: #444444;
+        }
+
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
             max-width: 750px;
             margin: 0 auto;
             padding: 2rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        nav {
-            margin-bottom: 2rem;
-        }
+
         header {
             margin-bottom: 3rem;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 2rem;
+            position: relative;
+            /* Helps position the toggle button */
         }
+
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.2rem;
-            color: #111;
+            color: var(--heading-color);
         }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
         .subtitle {
-            font-size: 1.1rem;
-            color: #0056b3;
+            font-size: 1.25rem;
+            color: var(--subtitle-color);
             margin-top: 0;
+            margin-bottom: 1.5rem;
             font-weight: 500;
         }
-        h2 {
-            font-size: 1.5rem;
-            color: #222;
-            margin-bottom: 1rem;
-            margin-top: 2.5rem;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 0.5rem;
+
+        .role,
+        .case-study {
+            margin-bottom: 2.5rem;
         }
-        h3 {
-            font-size: 1.2rem;
-            color: #111;
-            margin-top: 1.5rem;
+
+        .job-title {
             margin-bottom: 0.5rem;
         }
-        p {
+
+        .job-title h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--heading-color);
+        }
+
+        .company {
+            color: var(--accent-color);
+        }
+
+        .context {
+            font-style: italic;
+            color: var(--subtitle-color);
+            margin-top: 0.2rem;
             margin-bottom: 1rem;
         }
+
         ul {
             padding-left: 1.2rem;
-            margin-bottom: 1.5rem;
         }
+
         li {
             margin-bottom: 0.5rem;
         }
+
+        .metric {
+            font-weight: 600;
+            color: var(--metric-color);
+        }
+
         .btn {
             display: inline-block;
+            margin-top: 0.5rem;
             padding: 0.5rem 1rem;
-            background-color: #f0f0f0;
-            color: #111;
+            background-color: var(--btn-bg);
+            color: var(--text-color);
             border-radius: 4px;
             font-weight: 500;
             text-decoration: none;
-            transition: background-color 0.2s ease;
-            font-size: 0.9rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
+
         .btn:hover {
-            background-color: #e0e0e0;
+            background-color: var(--btn-hover);
             text-decoration: none;
         }
-        .highlight {
-            font-weight: 600;
-            color: #0c854c; 
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+            display: flex;
+            gap: 1.5rem;
         }
-        .callout-box {
-            background-color: #f8f9fa;
-            border-left: 4px solid #0056b3;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 4px 4px 0;
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
         }
-        .callout-box h3 {
-            margin-top: 0;
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
 
-    <nav>
+    <nav style="display: flex; justify-content: space-between; align-items: center;">
         <a href="index.html" class="btn">&larr; Back to Portfolio</a>
+        <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
     </nav>
 
     <header>
@@ -101,7 +164,9 @@
     <main>
         <section>
             <h2>The Challenge</h2>
-            <p>We were preparing to launch a new smart security product that required tight coordination across an entire ecosystem. Every major department was a stakeholder, and success relied on seamless integration between physical hardware and digital experiences.</p>
+            <p>We were preparing to launch a new smart security product that required tight coordination across an
+                entire ecosystem. Every major department was a stakeholder, and success relied on seamless integration
+                between physical hardware and digital experiences.</p>
             <p><strong>Operational dependencies included:</strong></p>
             <ul>
                 <li>Mobile app and website readiness</li>
@@ -110,32 +175,44 @@
                 <li>Warehouse logistics, packaging, and fulfillment</li>
                 <li>Customer support training and security protocol compliance</li>
             </ul>
-            <p>Complicating this further, some beta participants were internal stakeholder team members, requiring careful communication alignment. This wasn’t just a feature launch; it was an ecosystem release.</p>
+            <p>Complicating this further, some beta participants were internal stakeholder team members, requiring
+                careful communication alignment. This wasn’t just a feature launch; it was an ecosystem release.</p>
         </section>
 
         <section>
             <h2>My Role & Execution</h2>
-            <p>As the Product Manager, I owned the end-to-end beta strategy and operational coordination to de-risk the public launch.</p>
+            <p>As the Product Manager, I owned the end-to-end beta strategy and operational coordination to de-risk the
+                public launch.</p>
             <ul>
-                <li><strong>Strategy & Framework:</strong> Designed the beta test methodology, defined data collection mechanisms, and authored all beta instructions and documentation.</li>
-                <li><strong>Cohort Segmentation:</strong> Recruited and segmented beta cohorts based on installation type (DIY vs. professional), security needs, and prior beta experience. This allowed us to run structured A/B testing and isolate friction points by user profile.</li>
-                <li><strong>Cross-Functional Alignment:</strong> Coordinated readiness across business units, established departmental checkpoints, and authored training materials for Go-To-Market (GTM) approval.</li>
+                <li><strong>Strategy & Framework:</strong> Designed the beta test methodology, defined data collection
+                    mechanisms, and authored all beta instructions and documentation.</li>
+                <li><strong>Cohort Segmentation:</strong> Recruited and segmented beta cohorts based on installation
+                    type (DIY vs. professional), security needs, and prior beta experience. This allowed us to run
+                    structured A/B testing and isolate friction points by user profile.</li>
+                <li><strong>Cross-Functional Alignment:</strong> Coordinated readiness across business units,
+                    established departmental checkpoints, and authored training materials for Go-To-Market (GTM)
+                    approval.</li>
             </ul>
         </section>
 
         <section>
             <h2>Process Improvements Introduced</h2>
-            
+
             <h3>📦 Packaging Reinvention</h3>
-            <p>Recognizing that the digital experience begins with the physical unboxing, we redesigned packaging to reduce setup friction, improve hardware clarity, and directly align physical instructions with the in-app onboarding flow.</p>
+            <p>Recognizing that the digital experience begins with the physical unboxing, we redesigned packaging to
+                reduce setup friction, improve hardware clarity, and directly align physical instructions with the
+                in-app onboarding flow.</p>
 
             <h3>🏷 SKU & Warehouse Coordination</h3>
-            <p>Improper SKU setup could delay fulfillment or create configuration errors. I partnered with warehouse teams to ensure correct SKU mapping, proper inventory tagging, and fulfillment readiness prior to beta scaling.</p>
+            <p>Improper SKU setup could delay fulfillment or create configuration errors. I partnered with warehouse
+                teams to ensure correct SKU mapping, proper inventory tagging, and fulfillment readiness prior to beta
+                scaling.</p>
         </section>
 
         <section>
             <h2>Results & Insights</h2>
-            <p>By structuring data tracking per cohort, we were able to measure setup time, hardware pairing issues, app usability friction, and support escalation frequency.</p>
+            <p>By structuring data tracking per cohort, we were able to measure setup time, hardware pairing issues, app
+                usability friction, and support escalation frequency.</p>
             <ul>
                 <li>Identified multiple critical setup friction points before public launch.</li>
                 <li>Reduced hardware pairing errors prior to General Availability (GA).</li>
@@ -147,17 +224,48 @@
         <div class="callout-box">
             <h3>Key Takeaways</h3>
             <ul>
-                <li><strong>Ecosystem over Features:</strong> Complex product launches require ecosystem thinking; physical and digital product experiences must be designed together.</li>
-                <li><strong>Segmentation is Quality:</strong> Beta segmentation strictly determines the quality and actionability of your insights.</li>
-                <li><strong>Operations = Product:</strong> Operational readiness across the supply chain and support teams is just as critical as software functionality.</li>
+                <li><strong>Ecosystem over Features:</strong> Complex product launches require ecosystem thinking;
+                    physical and digital product experiences must be designed together.</li>
+                <li><strong>Segmentation is Quality:</strong> Beta segmentation strictly determines the quality and
+                    actionability of your insights.</li>
+                <li><strong>Operations = Product:</strong> Operational readiness across the supply chain and support
+                    teams is just as critical as software functionality.</li>
             </ul>
         </div>
     </main>
 
     <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0f0f0; padding-bottom: 2rem;">
-        <a href="mailto:daniel@dhallproduct.xyz" style="color: #0056b3; text-decoration: none; font-weight: 500; margin-right: 1.5rem;">Email Me</a>
-        <a href="https://www.linkedin.com/in/daniel-j-hall" target="_blank" style="color: #0056b3; text-decoration: none; font-weight: 500;">LinkedIn</a>
+        <a href="mailto:daniel@dhallproduct.xyz"
+            style="color: #0056b3; text-decoration: none; font-weight: 500; margin-right: 1.5rem;">Email Me</a>
+        <a href="https://www.linkedin.com/in/daniel-j-hall" target="_blank"
+            style="color: #0056b3; text-decoration: none; font-weight: 500;">LinkedIn</a>
     </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
 
+        // Check for saved theme in localStorage OR system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Apply initial theme
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+
+        // Toggle logic on click
+        themeToggle.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            }
+        });
+    </script>
 </body>
+
 </html>
