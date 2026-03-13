@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Hall | Product Philosophy</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333;
+            --heading-color: #111;
+            --subtitle-color: #555;
+            --accent-color: #0056b3;
+            --metric-color: #0c854c;
+            --border-color: #f0f0f0;
+            --btn-bg: #f0f0f0;
+            --btn-hover: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --subtitle-color: #aaaaaa;
+            --accent-color: #4da3ff;
+            --metric-color: #4ade80;
+            --border-color: #333333;
+            --btn-bg: #333333;
+            --btn-hover: #444444;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 2rem;
+            position: relative;
+            /* Helps position the toggle button */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.2rem;
+            color: var(--heading-color);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--subtitle-color);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .role,
+        .case-study {
+            margin-bottom: 2.5rem;
+        }
+
+        .job-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--heading-color);
+        }
+
+        .company {
+            color: var(--accent-color);
+        }
+
+        .context {
+            font-style: italic;
+            color: var(--subtitle-color);
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .metric {
+            font-weight: 600;
+            color: var(--metric-color);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--btn-bg);
+            color: var(--text-color);
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+  <main>
+    <section id="philosophy">
+      <h1>The Product Philosophy</h1>
+
+      <h2>The Core Belief</h2>
+      <p>The path to healthy products starts with people. Tools, frameworks, and metrics only matter when the team behind them is aligned. My approach is simple: build authentic relationships first, map clear strategies second, and execute exactly what is promised third. This sequence applies across three distinct levels of product development.</p>
+
+      <h2>The Macro: Leading the Team</h2>
+      <p>A product is only as healthy as the team building it. Trust is the actual foundation of any successful release. By prioritizing relationships with engineers, designers, and stakeholders, we create an environment where honest feedback flows and strategic alignment happens naturally.</p>
+      
+      <h2>The Micro: Solving the Problem</h2>
+      <p>When tackling a specific feature or roadblock, I focus on the relationship between the user and the problem. We map a clear strategy by understanding their exact pain points, ensuring every piece of code we write serves a genuine human need. My background in biology taught me to view a digital product as a living ecosystem, where every small change impacts the health of the whole system.</p>
+
+      <h2>The Internal: Focusing the Effort</h2>
+      <p>The most overlooked relationship is the one you have with your own focus. Before opening a backlog or writing a requirement, I define the exact goal. Internal clarity prevents wasted effort and guarantees that I execute exactly what I promised to deliver.</p>
+    </section>
+  </main>
+
+</body>
+</html>
